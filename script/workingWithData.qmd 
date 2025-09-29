@@ -1,1 +1,19 @@
-git rebase -i --root
+---
+title: "Working with Digital-Habits Data"
+author: "Javier"
+date: "`r Sys.Date()`"
+format:
+  html:
+    toc: true
+    toc-location: left
+    theme: flatly
+execute:
+  warning: false
+  message: false
+---
+
+```{r setup} library(tidyverse) library(knitr) library(kableExtra)
+
+read the data file that lives in data/ (one level up from this script)
+
+habits <- read_csv("../data/digital_habits_vs_mental_health.csv")
