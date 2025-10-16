@@ -6,10 +6,8 @@ This repository contains the Quarto analysis for the open-source
 All variables are synthetically generated and ethically mined (no PII).
 
 ## Folder Structure
-- `data/raw/` – original CSV (`digital_habits_vs_mental_health.csv`)
-- `codebook/` – variable dictionary (`codebook_digital_habits_2025-09-27.csv`)
-- `script/` – Quarto analysis (`workingWithData.qmd` + rendered HTML)
-- `outputs/` – optional future tables / figures
+- `data/` – original CSV (`digital_habits_vs_mental_health.csv`)
+- `script/` – Quarto analysis (`workingWithData.qmd`)
 
 ## How to Reproduce
 1. Clone the repo  

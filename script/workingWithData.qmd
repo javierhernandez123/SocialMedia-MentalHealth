@@ -1,0 +1,81 @@
+``` r
+---
+title: "Working with Digital-Habits Data"
+author: "Javier"
+date: "`r Sys.Date()`"
+format:
+  html:
+    toc: true
+    toc-location: left
+    theme: flatly
+execute:
+  warning: false
+  message: false
+---
+
+#| message: false
+#| warning: false
+library(tidyverse)
+library(readxl)
+library(knitr)
+library(kableExtra)
+
+habits <- read_excel("digital_habits_vs_mental_health.xlsx")
+```
+
+## **Three Categorical Variables – Frequency Tables**
+
+We treat the following three columns as categorical:
+
+1.  **social_media_platforms_used** – number of platforms a respondent uses
+
+2.  **stress_level** – self-reported stress (0–10)
+
+3.  **mood_score** – self-reported mood (0–10)
+
+``` r
+freq_tbl <- function(df, var) {
+  df %>% 
+    count({{ var }}) %>% 
+    mutate(percent = round(100 * n / sum(n), 1))
+}
+
+freq_platforms <- freq_tbl(habits, social_media_platforms_used)
+freq_stress    <- freq_tbl(habits, stress_level)
+freq_mood      <- freq_tbl(habits, mood_score)
+```
+
+### **Table 1: Social-Media Platforms Used**
+
+``` r
+kable(freq_platforms,
+      col.names = c("Platforms", "Count", "Percent"),
+      caption = "Distribution of the number of social-media platforms used.") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+### **Table 2: Stress Level**
+
+``` r
+kable(freq_stress,
+      col.names = c("Stress Level", "Count", "Percent"),
+      caption = "Self-reported stress level (0 = no stress, 10 = extreme stress).") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+### **Table 3: Mood Score**
+
+``` r
+kable(freq_mood,
+      col.names = c("Mood Score", "Count", "Percent"),
+      caption = "Self-reported mood score (0 = very negative, 10 = very positive).") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+## **Quick Interpretation**
+
+-   **Platforms**: The modal category is **5 platforms** (≈ 30 % of respondents); very few people use only one.
+
+-   **Stress**: Answers cluster between **3–6**, but a pronounced spike at **10** reveals a small, highly-stressed group.
+
+-   **Mood**: The distribution is **heavily left-skewed**; more than half the sample chose the maximum score of **10**, suggesting that—on average—participants feel quite positive despite varying stress levels.
