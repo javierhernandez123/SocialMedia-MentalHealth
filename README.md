@@ -19,7 +19,7 @@ The dataset `digital_habits_vs_mental_health.csv` contains the following variabl
 - `mood_score`: Self-reported mood score (1-10 scale)
 
 ## Folder Structure
-- `data/` – original CSV (`digital_habits_vs_mental_health.csv`)
+- `data/` – original CSV (`original data file: digital_habits_vs_mental_health.csv`, other cleaned data files)
 - `plots/` - all the plots generated from the code
 - `script/` – Quarto analysis (`workingWithData.qmd`)
 -  Readme.md
