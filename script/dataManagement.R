@@ -1,7 +1,5 @@
-# __________________________________________________
 
 # ---- DATA MANAGEMENT ----
-# __________________________________________________
 
 
 # This code block checks current working directory
@@ -75,8 +73,6 @@ if (exists("df")) {
 # < less than
 # != not equal to
 
-# __________________________________________________
-
 # ==== Identify missing data ==== 
 
 # This code block checks for missing values in the dataset
@@ -84,8 +80,6 @@ cat("\nChecking for missing values...\n")
 missing_values <- sapply(df, function(x) sum(is.na(x)))
 print("Missing values by variable:")
 print(missing_values)
-
-# __________________________________________________
 
 # ==== Collapsing response categories ====
 
@@ -103,15 +97,13 @@ df$screen_time_category[df$screen_time_hours < 4] <- "Low"
 df$screen_time_category[df$screen_time_hours >= 4 & df$screen_time_hours < 8] <- "Medium"
 df$screen_time_category[df$screen_time_hours >= 8] <- "High"
 
-# Create a new variable for sleep quality categories
+# This function creates a new variable for sleep quality categories
 df$sleep_quality <- NA
 df$sleep_quality[df$sleep_hours < 6] <- "Poor"
 df$sleep_quality[df$sleep_hours >= 6 & df$sleep_hours < 8] <- "Adequate"
 df$sleep_quality[df$sleep_hours >= 8] <- "Good"
 
 cat("Categorical variables created\n")
-
-# __________________________________________________
 
 # ==== Aggregating across variables ====
 
@@ -127,8 +119,6 @@ df$mental_health_indicator[df$stress_level > 7 | df$mood_score < 6] <- 1
 
 cat("Aggregated variables created\n")
 
-# __________________________________________________
-
 # ==== Here we create a quantitative variable ====
 
 cat("\nCreating quantitative variables...\n")
@@ -142,8 +132,6 @@ df$digital_habits_score <- (df$screen_time_hours / 12) * 0.4 +
 df$mental_health_score <- (10 - df$stress_level) + df$mood_score
 
 cat("Quantitative variables created\n")
-
-# __________________________________________________
 
 # ==== Labeling variables ==== 
 
@@ -166,8 +154,6 @@ label(df$mental_health_score) <- "Composite mental health score"
 
 cat("Variables labeled\n")
 
-# __________________________________________________
-
 # ==== This is where we label variable responses/values ==== 
 
 cat("\nSetting factor levels...\n")
@@ -185,8 +171,6 @@ df$sleep_quality <- factor(df$sleep_quality,
                            levels = c("Poor", "Adequate", "Good"))
 
 cat("Factor levels set\n")
-
-# __________________________________________________
 
 # ==== Sample subset ==== 
 
@@ -211,8 +195,6 @@ cat("Good sleepers subset created:", nrow(good_sleepers), "rows\n")
 # This function creates a subset of users with high digital habits score
 high_digital_habits <- df[df$digital_habits_score > 0.6, ]
 cat("High digital habits subset created:", nrow(high_digital_habits), "rows\n")
-
-# __________________________________________________
 
 # ==== Save the managed dataset ====
 
@@ -246,6 +228,5 @@ cat("Users with good sleep quality:", nrow(good_sleepers), "rows\n")
 cat("Users with high digital habits score:", nrow(high_digital_habits), "rows\n")
 cat("Data management completed successfully!\n")
 
-# __________________________________________________
 
-# ---- End ----
+# ==== END OF DATA MANAGEMENT SCRIPT ====
