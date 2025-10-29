@@ -21,5 +21,5 @@ The dataset `digital_habits_vs_mental_health.csv` contains the following variabl
 ## Folder Structure
 - `data/` – original CSV (`original data file: digital_habits_vs_mental_health.csv`, other cleaned data files)
 - `plots/` - all the plots generated from the code
-- `script/` – Quarto analysis (`workingWithData.qmd`)
+- `script/` – Contains the Quarto analysis (`workingWithData.qmd`), dataManagement.R, univariateDataViz.R, BivariateDataViz.R script files
 -  Readme.md
