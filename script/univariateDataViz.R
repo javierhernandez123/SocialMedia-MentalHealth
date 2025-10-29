@@ -1,7 +1,5 @@
-# __________________________________________________
 
 # ---- UNIVARIATE GRAPHS ---- 
-# __________________________________________________
 
 # Load the library
 library(ggplot2)
@@ -80,10 +78,7 @@ cat("Median:", round(median_stress, 3), "\n")
 cat("Standard Deviation:", round(sd_stress, 3), "\n")
 cat("Range:", round(min_stress, 3), "to", round(max_stress, 3), "\n")
 
-# __________________________________________________
-
 # ---- ANALYSIS OF GRAPHS ----
-# __________________________________________________
 
 cat("\n=== ANALYSIS OF SCREEN TIME CATEGORY GRAPH ===\n")
 cat("The bar chart shows the distribution of screen time categories.\n")
@@ -119,6 +114,4 @@ modal_stress <- as.numeric(names(sort(table(df$stress_level), decreasing = TRUE)
 cat("The modal stress level is", modal_stress, "with", 
     sum(df$stress_level == modal_stress), "observations.\n")
 
-# __________________________________________________
-
-# ---- End ----
+# End of univariateDataViz.R

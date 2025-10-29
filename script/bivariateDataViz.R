@@ -1,7 +1,5 @@
-# __________________________________________________
 
 # ---- BIVARIATE GRAPHS ---- 
-# __________________________________________________
 
 library(ggplot2)
 library(dplyr)
@@ -148,10 +146,7 @@ print(scatter_3var_plot)
 correlation <- cor(df$digital_habits_score, df$mental_health_score, use = "complete.obs")
 cat("\nCorrelation between digital habits score and mental health score:", round(correlation, 3), "\n")
 
-# __________________________________________________
-
 # ---- 3RD VARIABLE GRAPHS ----
-# __________________________________________________
 
 # ==== Categorical Explanatory, Categorical Response, Categorical 3rd Variable ====
 
@@ -174,10 +169,8 @@ stress_by_screen_sleep <- ftable(by(df$stress_level,
                                     mean, na.rm = TRUE))
 print(stress_by_screen_sleep)
 
-# __________________________________________________
 
 # ---- ANALYSIS OF GRAPHS ----
-# __________________________________________________
 
 cat("\n=== ANALYSIS OF MENTAL HEALTH BY SOCIAL MEDIA CATEGORY ===\n")
 cat("The bar chart shows the proportion of individuals with mental health concerns across different social media usage categories.\n")
@@ -214,6 +207,4 @@ cat("\n=== ANALYSIS OF DIGITAL HABITS AND MENTAL HEALTH BY SLEEP QUALITY ===\n")
 cat("The scatter plot with color-coded sleep quality shows how the relationship between digital habits and mental health varies by sleep quality.\n")
 cat("This visualization suggests that sleep quality may be a moderating factor in the relationship between digital habits and mental health.\n")
 
-# __________________________________________________
-
-# ---- End ----
+# End of bivariateDataViz.R
