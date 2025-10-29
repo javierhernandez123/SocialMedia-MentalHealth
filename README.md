@@ -19,9 +19,6 @@ The dataset `digital_habits_vs_mental_health.csv` contains the following variabl
 - `mood_score`: Self-reported mood score (1-10 scale)
 
 ## Folder Structure
-SocialMedia-MentalHealth/
-├── data/
-│ └── digital_habits_vs_mental_health.csv
-├── script/
-│ └── workingWithData.qmd
-└── README.md
+- `data/` – original CSV (`digital_habits_vs_mental_health.csv`)
+- `script/` – Quarto analysis (`workingWithData.qmd`)
+-  Readme.md
