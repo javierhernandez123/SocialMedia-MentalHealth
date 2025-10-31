@@ -2,7 +2,7 @@
 
 Dataset keyword: **digital-habits**
 
-This repository contains the Quarto analysis for the open-source **"Impact of Digital Habits on Mental Health"** dataset (N = 100,000). All variables are synthetically generated and ethically mined (no PII).
+This repository contains the Quarto analysis for the open-source **"Impact of Digital Habits on Mental Health"** dataset (N = 100,000).
 
 ## Project Overview
 
