@@ -59,6 +59,9 @@ The dataset `digital_habits_vs_mental_health.csv` contains 100,000 observations 
 - Even distribution of social media usage suggests no preference for particular number of platforms
 
 ## Folder Structure
+# SocialMedia-MentalHealth
+
+```
 SocialMedia-MentalHealth/
 ├── data/
 │   ├── digital_habits_vs_mental_health.csv
@@ -77,123 +80,114 @@ SocialMedia-MentalHealth/
 │   ├── bivariateGraphs.R
 │   └── [other analysis scripts]
 └── README.md
+```
 
-How to Reproduce
-Prerequisites
+---
 
-R (version 4.0 or higher)
+## How to Reproduce
 
-RStudio IDE
+### Prerequisites
+- R (version 4.0 or higher)
+- RStudio IDE
+- Required R packages:
+  - `tidyverse`
+  - `questionr`
+  - `Hmisc`
+  - `ggplot2`
 
-Required R packages:
+---
 
-tidyverse
+### Installation
 
-questionr
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/javierhernandez123/SocialMedia-MentalHealth.git
+   ```
 
-Hmisc
+2. **Navigate to the project directory:**
+   ```bash
+   cd SocialMedia-MentalHealth
+   ```
 
-ggplot2
+3. **Install required R packages:**
+   ```r
+   install.packages(c("tidyverse", "questionr", "Hmisc", "ggplot2"))
+   ```
 
-Installation
+---
 
-Clone the repository:
+## Running the Analysis
 
-git clone https://github.com/javierhernandez123/SocialMedia-MentalHealth.git
+1. Open the project in **RStudio**  
+2. Run the data management script:  
+   ```r
+   source("script/dataManagement.R")
+   ```
+3. Run the univariate analysis:  
+   ```r
+   source("script/univariateGraphs.R")
+   ```
+4. Run the bivariate analysis:  
+   ```r
+   source("script/bivariateGraphs.R")
+   ```
+5. View the Quarto report:  
+   ```bash
+   script/workingWithData.qmd
+   ```
 
+---
 
-Navigate to the project directory:
-
-cd SocialMedia-MentalHealth
-
-
-Install required R packages:
-
-install.packages(c("tidyverse", "questionr", "Hmisc", "ggplot2"))
-
-Running the Analysis
-
-Open the project in RStudio
-
-Run the data management script:
-
-source("script/dataManagement.R")
-
-
-Run the univariate analysis:
-
-source("script/univariateGraphs.R")
-
-
-Run the bivariate analysis:
-
-source("script/bivariateGraphs.R")
-
-
-View the Quarto report:
-
-script/workingWithData.qmd
-
-Analysis Steps
+## Analysis Steps
 
 The analysis follows these key stages:
 
-1. Data Loading
+### 1. Data Loading
+- Define file path  
+- Load CSV data into a dataframe  
+- Preview the data  
 
-Define file path
+### 2. Data Management
+- Create categorical variables (`social_media_category`, `screen_time_category`, `sleep_quality`)  
+- Create composite variables (`digital_intensity`, `mental_health_indicator`, `digital_habits_score`)  
+- Label variables and create subsets for analysis  
 
-Load CSV data into a dataframe
+### 3. Univariate Analysis
+- Create frequency tables for key variables  
+- Generate univariate graphs for categorical and quantitative variables  
+- Analyze distributions and identify patterns  
 
-Preview the data
+### 4. Bivariate Analysis
+- Explore relationships between digital habits and mental health indicators  
+- Create various bivariate visualizations  
+- Analyze third-variable effects  
 
-2. Data Management
+### 5. Hypothesis Testing
+- Test primary hypothesis: screen time vs. stress level  
+- Test secondary hypotheses: mood scores vs. social media usage  
+- Apply appropriate statistical tests (correlation, ANOVA)
 
-Create categorical variables (social_media_category, screen_time_category, sleep_quality)
+---
 
-Create composite variables (digital_intensity, mental_health_indicator, digital_habits_score)
+## Statistical Tests Applied
 
-Label variables and create subsets for analysis
+| Variable Pair | Test | Rationale |
+|----------------|------|------------|
+| `screen_time_hours` & `stress_level` | Pearson's r | Both quantitative variables |
+| `social_media_platforms_used` & `mood_score` | ANOVA | Categorical–quantitative relationship |
+| `sleep_hours` & `mood_score` | Pearson's r | Both quantitative variables |
 
-3. Univariate Analysis
+---
 
-Create frequency tables for key variables
+## Future Directions
 
-Generate univariate graphs for categorical and quantitative variables
+- **Investigate Mood Score Ceiling Effect:** The high percentage of maximum scores warrants further investigation  
+- **Examine Subgroup Differences:** Analyze whether relationships differ by demographic factors  
+- **Explore Non-linear Relationships:** Investigate potential non-linear patterns between variables  
+- **Longitudinal Analysis:** Consider how these relationships might change over time  
 
-Analyze distributions and identify patterns
+---
 
-4. Bivariate Analysis
-
-Explore relationships between digital habits and mental health indicators
-
-Create various bivariate visualizations
-
-Analyze third-variable effects
-
-5. Hypothesis Testing
-
-Test primary hypothesis: screen time vs. stress level
-
-Test secondary hypotheses: mood scores vs. social media usage
-
-Apply appropriate statistical tests (correlation, ANOVA)
-
-Statistical Tests Applied
-Variable Pair	Test	Rationale
-screen_time_hours & stress_level	Pearson's r	Both quantitative variables
-social_media_platforms_used & mood_score	ANOVA	Categorical–quantitative relationship
-sleep_hours & mood_score	Pearson's r	Both quantitative variables
-Future Directions
-
-Investigate Mood Score Ceiling Effect: The high percentage of maximum scores warrants further investigation
-
-Examine Subgroup Differences: Analyze whether relationships differ by demographic factors
-
-Explore Non-linear Relationships: Investigate potential non-linear patterns between variables
-
-Longitudinal Analysis: Consider how these relationships might change over time
-
-Author
-
-Javier Hernandez – Initial work
-GitHub: @javierhernandez123
+## Author
+**Javier Hernandez** – Initial work  
+GitHub: [@javierhernandez123](https://github.com/javierhernandez123)
